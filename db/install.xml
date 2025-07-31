@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/olympiads/db" VERSION="20250731" COMMENT="XMLDB file for Moodle blocks/olympiads"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="block_olympiads" COMMENT="Хранит данные об олимпиадах">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Название олимпиады"/>
+        <FIELD NAME="description" TYPE="char" LENGTH="1000" NOTNULL="false" SEQUENCE="false" COMMENT="Описание олимпиады"/>
+        <FIELD NAME="registration_start" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Дата и время начала регистрации"/>
+        <FIELD NAME="registration_end" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Дата и время окончания регистрации"/>
+        <FIELD NAME="registration_created" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Дата создания"/>
+        <FIELD NAME="creatorid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Кем создан"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="creatorid" TYPE="foreign" FIELDS="creatorid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="block_olympiad_registrations" COMMENT="Хранит регистрации на олимпиады">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="olympiadid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="studentid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="dateregistered" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Дата регистрации"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="olympiadid" TYPE="foreign" FIELDS="olympiadid" REFTABLE="block_olympiads" REFFIELDS="id"/>
+        <KEY NAME="studentid" TYPE="foreign" FIELDS="studentid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
