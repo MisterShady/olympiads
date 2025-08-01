@@ -27,9 +27,9 @@ if ($form->is_cancelled()) {
     $record = new stdClass();
     $record->name = $data->name;
     $record->description = $data->description['text'];
-    $record->registration_start = date('Y-m-d H:i:s', $data->registration_start);
-    $record->registration_end = date('Y-m-d H:i:s', $data->registration_end);
-    $record->registration_created = date('Y-m-d H:i:s');
+    $record->registration_start = $data->registration_start;
+    $record->registration_end = $data->registration_end;
+    $record->registration_created = time();
     $record->creatorid = $USER->id;
 
     if ($olympiadid) {
