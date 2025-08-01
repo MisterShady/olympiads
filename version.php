@@ -1,7 +1,7 @@
 <?php
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2025073101; 
+$plugin->version   = 2025073102; 
 $plugin->requires  = 2020110900;
 $plugin->component = 'block_olympiads';
 $plugin->maturity  = MATURITY_ALPHA;
