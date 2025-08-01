@@ -1,7 +1,5 @@
 <?php
 require_once(__DIR__ . '/../../config.php');
-require_once($CFG->libdir . '/formslib.php');
-
 require_login();
 $context = context_system::instance();
 require_capability('block/olympiads:manage', $context);
@@ -20,7 +18,7 @@ $PAGE->set_heading(get_string($action . '_olympiad', 'block_olympiads'));
 $form = new block_olympiads\form\olympiad_form(null, ['id' => $olympiadid]);
 
 if ($form->is_cancelled()) {
-    redirect(new moodle_url('/my')); 
+    redirect(new moodle_url('/blocks/olympiads/manage_olympiads.php')); // Вернуться к списку олимпиад
 } elseif ($data = $form->get_data()) {
     global $DB, $USER;
 
@@ -36,11 +34,11 @@ if ($form->is_cancelled()) {
         // Обновление существующей записи
         $record->id = $olympiadid;
         $DB->update_record('block_olympiads', $record);
-        redirect(new moodle_url('/my'), get_string('olympiad_updated', 'block_olympiads'));
+        redirect(new moodle_url('/blocks/olympiads/manage_olympiads.php'), get_string('olympiad_updated', 'block_olympiads'));
     } else {
         // Создание новой записи
         $DB->insert_record('block_olympiads', $record);
-        redirect(new moodle_url('/my'), get_string('olympiad_added', 'block_olympiads'));
+        redirect(new moodle_url('/blocks/olympiads/manage_olympiads.php'), get_string('olympiad_added', 'block_olympiads'));
     }
 }
 
@@ -51,8 +49,8 @@ if ($olympiadid) {
         'id' => $olympiad->id,
         'name' => $olympiad->name,
         'description' => ['text' => $olympiad->description],
-        'registration_start' => strtotime($olympiad->registration_start),
-        'registration_end' => strtotime($olympiad->registration_end)
+        'registration_start' => $olympiad->registration_start,
+        'registration_end' => $olympiad->registration_end
     ]);
 }
 
