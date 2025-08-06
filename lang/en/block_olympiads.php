@@ -12,6 +12,7 @@ $string['add_olympiad'] = 'Add Olympiad';
 $string['edit_olympiad'] = 'Edit Olympiad';
 $string['olympiad_name'] = 'Olympiad Name';
 $string['olympiad_description'] = 'Olympiad Description';
+$string['olympiad_icon'] = 'Olympiad Icon';
 $string['registration_start'] = 'Registration Start Date';
 $string['registration_end'] = 'Registration End Date';
 $string['olympiad_added'] = 'Olympiad successfully added';

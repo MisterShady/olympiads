@@ -9,6 +9,7 @@
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="name" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Название олимпиады"/>
         <FIELD NAME="description" TYPE="char" LENGTH="1000" NOTNULL="false" SEQUENCE="false" COMMENT="Описание олимпиады"/>
+        <FIELD NAME="icon" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Идентификатор иконки в file storage"/>
         <FIELD NAME="registration_start" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Дата и время начала регистрации"/>
         <FIELD NAME="registration_end" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Дата и время окончания регистрации"/>
         <FIELD NAME="registration_created" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Дата создания"/>

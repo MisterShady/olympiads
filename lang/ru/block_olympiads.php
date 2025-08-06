@@ -12,6 +12,7 @@ $string['add_olympiad'] = 'Добавить олимпиаду';
 $string['edit_olympiad'] = 'Редактировать олимпиаду';
 $string['olympiad_name'] = 'Название олимпиады';
 $string['olympiad_description'] = 'Описание олимпиады';
+$string['olympiad_icon'] = 'Иконка олимпиады';
 $string['registration_start'] = 'Дата начала регистрации';
 $string['registration_end'] = 'Дата окончания регистрации';
 $string['olympiad_added'] = 'Олимпиада успешно добавлена';

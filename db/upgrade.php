@@ -6,15 +6,15 @@ function xmldb_block_olympiads_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
-      if ($oldversion < 2025073105) {
-
-        // Define table block_olympiads to be created.
+    if ($oldversion < 2025080502) {
+        // Define table block_olympiads to be created or updated.
         $table = new xmldb_table('block_olympiads');
 
         // Adding fields to table block_olympiads.
         $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
         $table->add_field('name', XMLDB_TYPE_CHAR, '100', null, XMLDB_NOTNULL, null, null);
         $table->add_field('description', XMLDB_TYPE_CHAR, '1000', null, null, null, null);
+        $table->add_field('icon', XMLDB_TYPE_INTEGER, '10', null, null, null, null);
         $table->add_field('registration_start', XMLDB_TYPE_INTEGER, '20', null, XMLDB_NOTNULL, null, null);
         $table->add_field('registration_end', XMLDB_TYPE_INTEGER, '20', null, XMLDB_NOTNULL, null, null);
         $table->add_field('registration_created', XMLDB_TYPE_INTEGER, '20', null, XMLDB_NOTNULL, null, null);
@@ -27,6 +27,12 @@ function xmldb_block_olympiads_upgrade($oldversion) {
         // Conditionally launch create table for block_olympiads.
         if (!$dbman->table_exists($table)) {
             $dbman->create_table($table);
+        } else {
+            // Add icon field if it doesn't exist.
+            $field = new xmldb_field('icon', XMLDB_TYPE_INTEGER, '10', null, null, null, null);
+            if (!$dbman->field_exists($table, 'icon')) {
+                $dbman->add_field($table, $field);
+            }
         }
 
         // Define table block_olympiad_registrations to be created.
@@ -49,7 +55,7 @@ function xmldb_block_olympiads_upgrade($oldversion) {
         }
 
         // Olympiads savepoint reached.
-        upgrade_block_savepoint(true, 2025073105, 'olympiads');
+        upgrade_block_savepoint(true, 2025080502, 'olympiads');
     }
 
     // Everything has succeeded to here. Return true.

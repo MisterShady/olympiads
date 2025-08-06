@@ -9,6 +9,8 @@ require_once($CFG->libdir . '/formslib.php');
 
 class olympiad_form extends moodleform {
     public function definition() {
+        global $CFG; 
+
         $mform = $this->_form;
 
         // Скрытое поле для ID олимпиады
@@ -27,6 +29,15 @@ class olympiad_form extends moodleform {
             'cols' => 50
         ]);
         $mform->setType('description', PARAM_RAW);
+
+        // Иконка олимпиады
+        $mform->addElement('filemanager', 'icon', get_string('olympiad_icon', 'block_olympiads'), null, [
+            'subdirs' => 0,
+            'maxbytes' => $CFG->maxbytes,
+            'accepted_types' => ['.png', '.jpg', '.jpeg', '.gif'],
+            'maxfiles' => 1
+        ]);
+        $mform->setType('icon', PARAM_INT);
 
         // Дата и время начала регистрации
         $mform->addElement('date_time_selector', 'registration_start', get_string('registration_start', 'block_olympiads'));
