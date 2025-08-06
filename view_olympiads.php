@@ -30,12 +30,17 @@ foreach ($olympiads as $olympiad) {
         }
     }
 
+    // Создаем объект moodle_url и сразу получаем строку
+    $url = new moodle_url('/blocks/olympiads/register_olympiad.php', ['id' => $olympiad->id]);
+    $details_url = $url->out();
+
     $olympiad_data[] = [
         'name' => format_string($olympiad->name),
         'description' => format_text($olympiad->description, FORMAT_PLAIN),
         'registration_start' => userdate($olympiad->registration_start),
         'registration_end' => userdate($olympiad->registration_end),
-        'iconurl' => $iconurl
+        'iconurl' => $iconurl,
+        'details_url' => $details_url
     ];
 }
 

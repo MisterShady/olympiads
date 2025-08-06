@@ -1,0 +1,17 @@
+<div class="details">
+    <div class="details-header">
+        <h2>{{name}}</h2>
+        {{#iconurl}}
+            <img src="{{iconurl}}" alt="{{name}}" class="register-olympiad-icon" />
+        {{/iconurl}}
+        {{^iconurl}}
+            <img src="{{defaulticon}}" alt="{{name}}" class="olympiad-icon" />
+        {{/iconurl}}
+    </div>
+    <div class="details-content">
+        <p><strong>{{#str}}registration_period, block_olympiads{{/str}}:</strong> {{registration_start}} - {{registration_end}}</p>
+        <p><strong>{{#str}}olympiad_description, block_olympiads{{/str}}:</strong></p>
+        <p>{{description}}</p>
+        <button class="register-button" disabled>{{#str}}register_olympiad, block_olympiads{{/str}}</button>
+    </div>
+</div>

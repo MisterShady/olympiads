@@ -1,15 +1,16 @@
-{{#str}}view_olympiads, block_olympiads{{/str}}
-<div class="block_olympiads-grid">
+<div class="grid">
     {{#olympiads}}
-        <div class="block_olympiads-olympiad-card">
-            {{#iconurl}}
-                <img src="{{iconurl}}" alt="{{name}}" class="block_olympiads-olympiad-icon" />
-            {{/iconurl}}
-            {{^iconurl}}
-                <img src="{{defaulticon}}" alt="{{name}}" class="block_olympiads-olympiad-icon" />
-            {{/iconurl}}
-            <h3 class="block_olympiads-olympiad-title">{{name}}</h3>
-        </div>
+        <a href="{{details_url}}" class="olympiad-link">
+            <div class="olympiad-card">
+                {{#iconurl}}
+                    <img src="{{iconurl}}" alt="{{name}}" class="olympiad-icon" />
+                {{/iconurl}}
+                {{^iconurl}}
+                    <img src="{{defaulticon}}" alt="{{name}}" class="olympiad-icon" />
+                {{/iconurl}}
+                <h3 class="olympiad-title">{{name}}</h3>
+            </div>
+        </a>
     {{/olympiads}}
     {{^olympiads}}
         <p>{{#str}}no_olympiads_available, block_olympiads{{/str}}</p>

@@ -24,3 +24,5 @@ $string['actions'] = 'Действия';
 $string['unknown'] = 'Неизвестно';
 $string['confirm_delete'] = 'Вы уверены, что хотите удалить эту олимпиаду?';
 $string['no_olympiads_available'] = 'В настоящее время нет олимпиад, доступных для регистрации.';
+$string['olympiad_details'] = 'Детали олимпиады {$a}';
+$string['registration_period'] = 'Период регистрации';
