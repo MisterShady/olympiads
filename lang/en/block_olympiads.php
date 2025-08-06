@@ -23,3 +23,4 @@ $string['creator'] = 'Creator';
 $string['actions'] = 'Actions';
 $string['unknown'] = 'Unknown';
 $string['confirm_delete'] = 'Are you sure you want to delete this olympiad?';
+$string['no_olympiads_available'] = 'No olympiads are currently available for registration.';

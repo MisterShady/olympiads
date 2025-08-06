@@ -23,3 +23,4 @@ $string['creator'] = 'Создатель';
 $string['actions'] = 'Действия';
 $string['unknown'] = 'Неизвестно';
 $string['confirm_delete'] = 'Вы уверены, что хотите удалить эту олимпиаду?';
+$string['no_olympiads_available'] = 'В настоящее время нет олимпиад, доступных для регистрации.';
