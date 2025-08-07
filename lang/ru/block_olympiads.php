@@ -26,3 +26,6 @@ $string['confirm_delete'] = 'Вы уверены, что хотите удали
 $string['no_olympiads_available'] = 'В настоящее время нет олимпиад, доступных для регистрации.';
 $string['olympiad_details'] = 'Детали олимпиады {$a}';
 $string['registration_period'] = 'Период регистрации';
+$string['registration_success'] = 'Вы успешно зарегистрировались на олимпиаду!';
+$string['already_registered'] = 'Вы уже зарегистрированы на эту олимпиаду.';
+$string['registration_closed'] = 'Регистрация на эту олимпиаду закрыта.';

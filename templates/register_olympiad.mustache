@@ -5,13 +5,29 @@
             <img src="{{iconurl}}" alt="{{name}}" class="register-olympiad-icon" />
         {{/iconurl}}
         {{^iconurl}}
-            <img src="{{defaulticon}}" alt="{{name}}" class="olympiad-icon" />
+            <img src="{{defaulticon}}" alt="{{name}}" class="register-olympiad-icon" />
         {{/iconurl}}
     </div>
     <div class="details-content">
         <p><strong>{{#str}}registration_period, block_olympiads{{/str}}:</strong> {{registration_start}} - {{registration_end}}</p>
         <p><strong>{{#str}}olympiad_description, block_olympiads{{/str}}:</strong></p>
         <p>{{description}}</p>
-        <button class="register-button" disabled>{{#str}}register_olympiad, block_olympiads{{/str}}</button>
+        {{#already_registered}}
+            <p class="alert alert-warning">{{#str}}already_registered, block_olympiads{{/str}}</p>
+        {{/already_registered}}
+        {{#registration_closed}}
+            <p class="alert alert-danger">{{#str}}registration_closed, block_olympiads{{/str}}</p>
+        {{/registration_closed}}
+        {{#can_register}}
+            <form action="/blocks/olympiads/register_olympiad.php" method="post">
+                <input type="hidden" name="sesskey" value="{{sesskey}}">
+                <input type="hidden" name="action" value="register">
+                <input type="hidden" name="id" value="{{olympiadid}}">
+                <button type="submit" class="register-button">{{#str}}register_olympiad, block_olympiads{{/str}}</button>
+            </form>
+        {{/can_register}}
+        {{^can_register}}
+            <button class="register-button" disabled>{{#str}}register_olympiad, block_olympiads{{/str}}</button>
+        {{/can_register}}
     </div>
 </div>

@@ -47,7 +47,7 @@ class olympiad_form extends moodleform {
         // Дата и время окончания регистрации
         $mform->addElement('date_time_selector', 'registration_end', get_string('registration_end', 'block_olympiads'));
         $mform->addRule('registration_end', get_string('required'), 'required', null, 'client');
-        $mform->setDefault('registration_end', time() + 7 * 24 * 3600); // По умолчанию +7 дней
+        $mform->setDefault('registration_end', time() + 1 * 24 * 3600); 
 
         $this->add_action_buttons();
     }

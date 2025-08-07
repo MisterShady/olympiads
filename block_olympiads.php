@@ -36,7 +36,6 @@ class block_olympiads extends block_base {
 
         if ($canregister) {
             $this->content->text .= '<p><a href="' . new moodle_url('/blocks/olympiads/view_olympiads.php') . '">' . get_string('view_olympiads', 'block_olympiads') . '</a></p>';
-            $this->content->text .= '<p><a href="#">' . get_string('register_olympiad', 'block_olympiads') . '</a></p>';
         }
 
         return $this->content;
