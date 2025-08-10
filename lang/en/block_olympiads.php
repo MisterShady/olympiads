@@ -29,3 +29,5 @@ $string['registration_period'] = 'Registration Period';
 $string['registration_success'] = 'You have successfully registered for the Olympiad!';
 $string['already_registered'] = 'You are already registered for this Olympiad.';
 $string['registration_closed'] = 'Registration for this Olympiad is closed.';
+$string['view_registrations_for'] = 'View registrations for {$a}';
+$string['no_registrations'] = 'No students registered yet.';

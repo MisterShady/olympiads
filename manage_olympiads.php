@@ -59,11 +59,13 @@ foreach ($olympiads as $olympiad) {
         'id' => $olympiad->id,
         'sesskey' => sesskey()
     ]);
+    $view_reg_url = new moodle_url('/blocks/olympiads/view_registrations.php', ['id' => $olympiad->id]);
 
     $actions = $OUTPUT->action_icon($edit_url, new pix_icon('i/edit', get_string('edit')));
     $actions .= $OUTPUT->action_icon($delete_url, new pix_icon('i/delete', get_string('delete')), null, [
         'onclick' => 'return confirm("' . get_string('confirm_delete', 'block_olympiads') . '");'
     ]);
+    $actions .= $OUTPUT->action_icon($view_reg_url, new pix_icon('i/report', get_string('view_registrations', 'block_olympiads')));
 
     $table->data[] = [
         html_writer::img($iconurl, format_string($olympiad->name), ['style' => 'max-width: 50px; max-height: 50px;']),

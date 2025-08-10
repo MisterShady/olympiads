@@ -29,3 +29,5 @@ $string['registration_period'] = 'Период регистрации';
 $string['registration_success'] = 'Вы успешно зарегистрировались на олимпиаду!';
 $string['already_registered'] = 'Вы уже зарегистрированы на эту олимпиаду.';
 $string['registration_closed'] = 'Регистрация на эту олимпиаду закрыта.';
+$string['view_registrations_for'] = 'Просмотр регистраций на {$a}';
+$string['no_registrations'] = 'Пока нет зарегистрированных студентов.';
